@@ -40,8 +40,12 @@ public class UsersController {
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<Void> delete(@RequestParam int id){
+    public ResponseEntity<String> delete(@RequestParam(required = false) Integer id) {
+        if (id == null) {
+            return new ResponseEntity<>("Required parameter 'id' is not present.", HttpStatus.BAD_REQUEST);
+        }
         userService.delete(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>("User deleted successfully", HttpStatus.OK);
     }
+
 }
