@@ -33,9 +33,10 @@ function ProfileCard({ userName, userImage }) {
                                 <Heading size='sm'>{userName || "Guest"}</Heading>
                             </Box>
                         </Flex>
-                        <Button onClick={handleLogout} colorScheme={'pink'}>
-                            Log out
+                        <Button onClick={handleLogout} bg={'#00695c'} color={'white'} _hover={{ bg: '#00695c' }}>Log out
+                            
                         </Button>
+
                     </HStack>
                 </CardHeader>
             </Card>

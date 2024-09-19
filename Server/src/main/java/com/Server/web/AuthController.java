@@ -52,27 +52,31 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody RegisterRequest registerRequest){
-
-        if (userRepository.findByEmail(registerRequest.getEmail())!=null){
-            return new ResponseEntity<>("Email already exists",HttpStatus.BAD_REQUEST);
+    public ResponseEntity<String> register(@RequestBody RegisterRequest registerRequest) {
+        if (userRepository.findByEmail(registerRequest.getEmail()) != null) {
+            throw new IllegalArgumentException("Email already exists.");
         }
+
         User user = new User();
         user.setEmail(registerRequest.getEmail());
         user.setName(registerRequest.getName());
         user.setLastName(registerRequest.getLastName());
         user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
         userRepository.save(user);
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(registerRequest.getEmail(), registerRequest.getPassword())
-        );
-        return new ResponseEntity<>(jwtUtil.generateToken(
-                registerRequest.getEmail(),
-                userRepository.findByEmail(registerRequest.getEmail()).getId(),
-                registerRequest.getName() +" "+registerRequest.getLastName()
-        )
-                ,HttpStatus.OK
-        );
+
+        try {
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(registerRequest.getEmail(), registerRequest.getPassword())
+            );
+            String token = jwtUtil.generateToken(
+                    registerRequest.getEmail(),
+                    userRepository.findByEmail(registerRequest.getEmail()).getId(),
+                    registerRequest.getName() + " " + registerRequest.getLastName()
+            );
+            return ResponseEntity.ok(token);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 }

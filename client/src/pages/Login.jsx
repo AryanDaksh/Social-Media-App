@@ -1,5 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { Button, Container, Flex, FormControl, FormLabel, Heading, Image, Input, Stack, Text, useBreakpointValue, useToast, VStack } from '@chakra-ui/react';
+import {
+    Button, Container, Flex, FormControl, FormLabel, Heading, Image, Input, Stack, Text,
+    useBreakpointValue, useToast, VStack
+} from '@chakra-ui/react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import AuthContext from '../context/AuthContext';
@@ -26,19 +29,19 @@ function Login() {
         onSubmit: async (values, { setSubmitting }) => {
             try {
                 const result = await authService.login(values);
-                login(result.data);
+                login(result.data);  // Assuming result.data contains the JWT token
                 toast({
                     title: "Login Successful",
                     status: 'success',
-                    duration: 9000,
+                    duration: 3000,
                     isClosable: true,
                 });
-                navigate("/home");
-            } catch (e) {
-                console.log(e.message);
+                navigate("/home");  // Navigate to home page on success
+            } catch (error) {
+                console.error("Login failed: ", error);
                 toast({
                     title: "Login Failed",
-                    description: "Invalid email or password. Please try again.",
+                    description: error.response?.data?.message || "Invalid email or password. Please try again.",
                     status: 'error',
                     duration: 9000,
                     isClosable: true,
@@ -65,13 +68,13 @@ function Login() {
                                     position: 'absolute',
                                     bottom: 1,
                                     left: 0,
-                                    bg: 'pink.500',
+                                    bg: '#00695c',
                                     zIndex: -1,
                                 }}>
                                 Spring-React
                             </Text>
                             <br />{' '}
-                            <Text color={'pink.500'} as={'span'}>
+                            <Text color={'#00695c'} as={'span'}>
                                 Social Media App
                             </Text>{' '}
                         </Heading>
@@ -112,9 +115,10 @@ function Login() {
                                 <Text color='red.500'>{formik.errors.password}</Text>
                             ) : null}
                         </FormControl>
-                        <Button type='submit' colorScheme={'pink'} isLoading={formik.isSubmitting}>
-                            Submit
-                        </Button>
+                            <Button type='submit' colorScheme='$rmd-teal-800' isLoading={formik.isSubmitting} sx={{ bg: '#00695c', color: 'white', _hover: { bg: '#004d40' } }}>
+                                Submit
+                            </Button>
+
                     </VStack>
                 </Container>
             </Flex>

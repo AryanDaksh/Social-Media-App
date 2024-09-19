@@ -99,7 +99,7 @@ function CommentModal({ postId }) {
                                 placeholder={'Share a Comment'}
                             />
                             <InputRightElement width='4.5rem'>
-                                <Button type='submit' colorScheme={'pink'} h='1.75rem' size='sm'>
+                            <Button type='submit' bg={'#00695c'} color={'white'} h='1.75rem' size='sm' _hover={{ bg: '#00695c' }}>
                                     Share
                                 </Button>
                             </InputRightElement>

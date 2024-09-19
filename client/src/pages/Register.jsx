@@ -44,7 +44,7 @@ function Register() {
     onSubmit: async (values) => {
       try {
         const result = await authService.register(values);
-        login(result.data);
+        login(result); // Adjust according to your backend response
         toast({
           title: "Registration Successful",
           description: "We've created your account for you.",
@@ -52,10 +52,8 @@ function Register() {
           duration: 9000,
           isClosable: true,
         });
-        // Optionally handle token storage if provided
-        // localStorage.setItem("token", result.data.token);
       } catch (error) {
-        const errorMessage = error.response?.data || "An unexpected error occurred";
+        const errorMessage = error.message || "An unexpected error occurred";
         toast({
           title: "Registration Error",
           description: errorMessage,
@@ -83,13 +81,13 @@ function Register() {
                   position: 'absolute',
                   bottom: 1,
                   left: 0,
-                  bg: 'pink.500',
+                  bg: '#00695c',
                   zIndex: -1,
                 }}>
                 Spring-React
               </Text>
               <br />
-              <Text color={'pink.500'} as={'span'}>
+              <Text color={'#00695c'} as={'span'}>
                 Social Media App
               </Text>
             </Heading>
@@ -105,7 +103,7 @@ function Register() {
             <FormField formik={formik} name='lastName' label='Last Name' />
             <FormField formik={formik} name='email' label='Email address' type='email' />
             <FormField formik={formik} name='password' label='Password' type='password' />
-            <Button type='submit' colorScheme={'pink'}>Register</Button>
+            <Button type='submit' colorScheme='$rmd-teal-800' sx={{ bg: '#00695c', color: 'white', _hover: { bg: '#004d40' } }}>Register</Button>
             <Button as={Link} to={"/login"}>Login</Button>
           </VStack>
         </Container>

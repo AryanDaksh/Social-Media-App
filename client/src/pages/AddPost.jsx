@@ -103,7 +103,7 @@ function AddPost() {
 
     return (
         <>
-            <Button onClick={onOpen} colorScheme={'pink'}>Share Post</Button>
+            <Button onClick={onOpen} colorScheme='$rmd-teal-800' style={{ backgroundColor: '#00695c', color: 'white' }}>Share Post</Button>
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent as={'form'} onSubmit={formik.handleSubmit}>
@@ -126,16 +126,15 @@ function AddPost() {
 
                         <FormControl mt={4}>
                             <FormLabel>Upload Image</FormLabel>
-                            <Button colorScheme={'pink'} as={'label'}>
+                            <Button colorScheme='$rmd-teal-800' as='label' style={{ backgroundColor: '#00695c', color: 'white' }}>
                                 {file ? file.name : "Upload Image"}
-                                <input hidden type={'file'} accept="image/*" onChange={handleImageChange} />
+                                <input hidden type='file' accept='image/*' onChange={handleImageChange} />
                             </Button>
                         </FormControl>
                     </ModalBody>
 
                     <ModalFooter>
-                        <Button type='submit' colorScheme='pink' mr={3} isLoading={loading}>
-                            Share
+                        <Button type='submit' style={{ backgroundColor: '#00695c', color: 'white' }} mr={3} isLoading={loading}>                            Share
                         </Button>
                         <Button onClick={onClose}>Cancel</Button>
                     </ModalFooter>

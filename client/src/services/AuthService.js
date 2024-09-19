@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export default class AuthService {
-
     async register(values) {
         try {
             const response = await axios.post(`${process.env.REACT_APP_API}auth/register`, values);
@@ -9,7 +8,8 @@ export default class AuthService {
         } catch (error) {
             // Handle error
             console.error("Registration error:", error.response ? error.response.data : error.message);
-            throw error.response ? error.response.data : error.message; // Standardize the error thrown
+            // Standardize the error thrown
+            throw error.response?.data || { message: "An unexpected error occurred during registration." };
         }
     }
 
@@ -20,7 +20,8 @@ export default class AuthService {
         } catch (error) {
             // Handle error
             console.error("Login error:", error.response ? error.response.data : error.message);
-            throw error.response ? error.response.data : error.message; // Standardize the error thrown
+            // Standardize the error thrown
+            throw error.response?.data || { message: "An unexpected error occurred during login." };
         }
     }
 }
