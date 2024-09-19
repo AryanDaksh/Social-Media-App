@@ -29,10 +29,12 @@ public class PostImagesController {
     @GetMapping("/download/{postId}")
     public ResponseEntity<?> download(@PathVariable int postId){
         byte[] image = postImageService.download(postId);
-        if (image!=null){
-            return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.valueOf("image/png")).body(image);
+        if (image != null) {
+            return ResponseEntity.status(HttpStatus.OK)
+                    .contentType(MediaType.valueOf("image/png")) // Or determine file type dynamically
+                    .body(image);
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Image not found");
     }
+
 }

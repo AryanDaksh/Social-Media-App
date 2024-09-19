@@ -50,10 +50,20 @@ public class UserService {
     public User getById(int id){
         return userRepository.findById(id).get();
     }
-    public void add(UserAddRequest userAddRequest){
-        User user = userMapper.requestToUser(userAddRequest);
-        userRepository.save(user);
+
+    public void add(UserAddRequest userAddRequest) {
+        try {
+            // Log the request values
+            System.out.println("Adding user with name: " + userAddRequest.getName());
+
+            User user = userMapper.requestToUser(userAddRequest);
+            userRepository.save(user);
+        } catch (Exception ex) {
+            // Handle exceptions and provide meaningful messages
+            throw new RuntimeException("Failed to add user: " + ex.getMessage(), ex);
+        }
     }
+
 
     public void delete(int id){
         userRepository.deleteById(id);

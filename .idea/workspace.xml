@@ -5,72 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="109cc6fe-a131-403b-9558-3f759f178a36" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Social-Media-App.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/db/entity/Comment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/db/entity/Follow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/db/entity/Like.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/db/entity/Post.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/db/entity/PostImage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/db/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/db/entity/UserImage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/db/repo/CommentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/db/repo/FollowRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/db/repo/LikeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/db/repo/PostImageRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/db/repo/PostRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/db/repo/UserImageRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/db/repo/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/mappers/CommentMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/mappers/FollowMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/mappers/LikeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/mappers/PostImageMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/mappers/PostMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/mappers/UserImageMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/mappers/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/request/CommentAddRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/request/CommentUpdateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/request/FollowRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/request/LikeRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/request/LoginRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/request/PostAddRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/request/RegisterRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/request/UserAddRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/response/CommentResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/response/FollowResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/response/LikeResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/response/PostImageResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/response/PostResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/response/user/UserFollowerResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/response/user/UserFollowingResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/response/user/UserImageResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/response/user/UserJwtResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/response/user/UserResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/security/CustomUserDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/security/JwtAuthFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/security/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/service/CommentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/service/FollowService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/service/LikeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/service/PostImageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/service/PostService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/service/UserImageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/utils/ImageUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/web/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/web/CommentsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/web/FollowsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/web/LikesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/web/PostImagesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/web/PostsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/web/UserImagesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/web/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/Server/db/entity/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/db/entity/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/Server/exception/EmailAlreadyExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/Server/security/JwtAuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/security/JwtAuthFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/Server/web/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/web/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/Server/web/PostImagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/web/PostImagesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/context/AuthContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/context/AuthContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Register.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/services/AuthService.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/services/AuthService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,10 +51,10 @@
     "Application.SocialMediaApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "develop",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/aryan/Desktop/Projects/Fitness-Application-Using-SpringBoot",
+    "last_opened_file_path": "C:/Users/aryan/Downloads/spring-react-socialmedia-app-master",
     "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
   }
 }]]></component>
