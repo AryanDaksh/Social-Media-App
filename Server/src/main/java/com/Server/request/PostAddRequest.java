@@ -9,6 +9,6 @@ public class PostAddRequest {
 
     private int userId;
 
-    private String Description;
+    private String description;
 
 }

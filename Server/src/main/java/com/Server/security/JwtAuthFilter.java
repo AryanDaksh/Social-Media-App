@@ -32,29 +32,42 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
             if (token != null && !token.trim().isEmpty()) {
                 try {
+                    // Extract the username (subject) from the token
                     String userName = jwtUtil.extractUsername(token);
+                    System.out.println("Extracted username from token: " + userName); // Log the username for debugging
 
+                    // If username is not null and authentication is not already set
                     if (userName != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+                        // Load user details using the extracted username
                         UserDetails userDetails = service.loadUserByUsername(userName);
 
+                        // Validate the token with userDetails
                         if (jwtUtil.validateToken(token, userDetails)) {
+                            // Create authentication token and set it in security context
                             UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
                                     new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                             usernamePasswordAuthenticationToken
                                     .setDetails(new WebAuthenticationDetailsSource().buildDetails(httpServletRequest));
+
+                            // Set authentication in the security context
                             SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+                        } else {
+                            System.err.println("Invalid JWT token");
                         }
                     }
                 } catch (RuntimeException e) {
-                    // Handle invalid token error
+                    // Log error for debugging purposes
                     System.err.println("Error decoding or validating token: " + e.getMessage());
+                    httpServletResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid JWT token");
                 }
             } else {
                 System.err.println("Token is null or empty");
             }
         }
 
+        // Continue the filter chain
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
+
 
 }

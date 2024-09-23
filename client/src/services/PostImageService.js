@@ -6,9 +6,10 @@ const apiClient = axios.create({
 });
 
 export default class PostImageService {
-    async upload(file, token) {
+    async upload(file, postId, token) {
         const formData = new FormData();
-        formData.append('file', file);
+        formData.append('image', file);  // Use 'image' instead of 'file'
+        formData.append('postId', postId);  // Append postId as well
 
         try {
             const response = await apiClient.post("postimages/upload", formData, {

@@ -8,9 +8,12 @@ import com.Server.mappers.UserMapper;
 import com.Server.request.UserAddRequest;
 import com.Server.response.user.UserFollowingResponse;
 import com.Server.response.user.UserResponse;
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import jakarta.validation.ConstraintViolation;
 
 @Service
 public class UserService {
@@ -56,14 +59,28 @@ public class UserService {
             // Log the request values
             System.out.println("Adding user with name: " + userAddRequest.getName());
 
+            // Map the request to User entity
             User user = userMapper.requestToUser(userAddRequest);
+
+            // Validate that user object is correctly populated
+            if (user == null || user.getEmail() == null || user.getPassword() == null) {
+                throw new IllegalArgumentException("User details are incomplete.");
+            }
+
+            // Save the user to the repository
             userRepository.save(user);
+            System.out.println("User added successfully: " + user);
+        } catch (ConstraintViolationException ex) {
+            // Handle validation errors specifically
+            String errorMessage = ex.getConstraintViolations().stream()
+                    .map(ConstraintViolation::getMessage)
+                    .collect(Collectors.joining(", "));
+            throw new RuntimeException("Validation error: " + errorMessage, ex);
         } catch (Exception ex) {
-            // Handle exceptions and provide meaningful messages
+            // Handle all other exceptions
             throw new RuntimeException("Failed to add user: " + ex.getMessage(), ex);
         }
     }
-
 
     public void delete(int id){
         userRepository.deleteById(id);

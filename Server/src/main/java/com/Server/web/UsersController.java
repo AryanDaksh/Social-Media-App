@@ -40,9 +40,6 @@ public class UsersController {
     @PostMapping("/add")
     public ResponseEntity<?> addUser(@Valid @RequestBody UserAddRequest userAddRequest) {
         try {
-            // Log received request data
-            System.out.println("Received UserAddRequest: " + userAddRequest);
-
             userService.add(userAddRequest);
             return ResponseEntity.ok("User added successfully");
         } catch (ConstraintViolationException ex) {
@@ -54,8 +51,6 @@ public class UsersController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error occurred: " + ex.getMessage());
         }
     }
-
-
 
     @DeleteMapping("/delete")
     public ResponseEntity<String> delete(@RequestParam(required = false) Integer id) {

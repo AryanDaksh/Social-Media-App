@@ -23,6 +23,7 @@ public class PostImage {
 
     @Column(name = "data",length = 1000)
     private byte[] data;
+
     @NotNull
     @ManyToOne
     @JoinColumn(name = "post_id")

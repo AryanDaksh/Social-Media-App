@@ -6,16 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="109cc6fe-a131-403b-9558-3f759f178a36" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/Server/db/entity/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/db/entity/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/Server/exception/EmailAlreadyExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/Server/db/entity/PostImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/db/entity/PostImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/Server/mappers/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/mappers/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/Server/request/PostAddRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/request/PostAddRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/Server/security/JwtAuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/security/JwtAuthFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/Server/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/Server/web/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/web/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/Server/web/PostImagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/web/PostImagesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/main/java/com/Server/web/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/main/java/com/Server/web/UsersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/context/AuthContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/context/AuthContext.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Register.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/services/AuthService.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/services/AuthService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/services/PostImageService.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/services/PostImageService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,19 +45,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Server.executor": "Run",
-    "Application.SocialMediaApplication.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "develop",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/aryan/Downloads/spring-react-socialmedia-app-master",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Server.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SocialMediaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/aryan/Downloads/spring-react-socialmedia-app-master&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Server" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="22" />
