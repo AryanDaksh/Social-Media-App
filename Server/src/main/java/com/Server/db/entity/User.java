@@ -19,20 +19,20 @@ public class User {
     @Column(name = "id")
     private int id;
 
-    @NotNull
+    @NotNull(message = "Name must not be null")
     @Column(name = "name")
     private String name;
 
-    @NotNull
+    @NotNull(message = "Email must not be null")
     @Column(name = "email")
-    @Email
+    @Email(message = "Email should be valid")
     private String email;
 
-    @NotNull
+    @NotNull(message = "Last name must not be null")
     @Column(name = "last_name")
     private String lastName;
 
-    @NotNull
+    @NotNull(message = "Password must not be null")
     @Column(name = "password")
     private String password;
 

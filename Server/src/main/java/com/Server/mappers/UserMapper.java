@@ -28,6 +28,13 @@ public interface UserMapper {
     @Mapping(source = "following",target = "following")
     UserResponse userToResponse(User user);
 
+    @Mapping(target = "id", ignore = true) // Assuming id is generated
+    @Mapping(target = "following", ignore = true) // Assuming these are set later
+    @Mapping(target = "followers", ignore = true)
+    @Mapping(target = "posts", ignore = true)
+    @Mapping(target = "likes", ignore = true)
+    @Mapping(target = "images", ignore = true)
+    @Mapping(target = "comments", ignore = true)
     User requestToUser(UserAddRequest userAddRequest);
 
     List<UserResponse> usersToResponses(List<User> users);

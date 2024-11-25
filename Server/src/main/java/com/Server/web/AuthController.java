@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collections;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -32,47 +35,55 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest)  {
-
+    public ResponseEntity<Map<String, String>> login(@RequestBody LoginRequest loginRequest) {
         try {
+            User user = userRepository.findByEmail(loginRequest.getEmail());
+            if (user == null) {
+                return new ResponseEntity<>(Collections.singletonMap("message", "Invalid email or password."), HttpStatus.UNAUTHORIZED);
+            }
+
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword())
             );
-            return new ResponseEntity<>(jwtUtil.generateToken(
-                    loginRequest.getEmail(),
-                    userRepository.findByEmail(loginRequest.getEmail()).getId(),
-                    userRepository.findByEmail(loginRequest.getEmail()).getName()+
-                            " "+ userRepository.findByEmail(loginRequest.getEmail()).getLastName()
-            )
-                    , HttpStatus.OK
+
+            String token = jwtUtil.generateToken(
+                    user.getEmail(),
+                    user.getId(),
+                    user.getName() + " " + user.getLastName()
             );
-        }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+
+            return ResponseEntity.ok(Collections.singletonMap("token", token));
+        } catch (Exception e) {
+            System.err.println("Login failed: " + e.getMessage());
+            return new ResponseEntity<>(Collections.singletonMap("message", "Invalid email or password."), HttpStatus.UNAUTHORIZED);
         }
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody RegisterRequest registerRequest){
-
-        if (userRepository.findByEmail(registerRequest.getEmail())!=null){
-            return new ResponseEntity<>("Email already exists",HttpStatus.BAD_REQUEST);
+    public ResponseEntity<String> register(@RequestBody RegisterRequest registerRequest) {
+        if (userRepository.findByEmail(registerRequest.getEmail()) != null) {
+            return new ResponseEntity<>("Email already exists.", HttpStatus.BAD_REQUEST);
         }
+
         User user = new User();
         user.setEmail(registerRequest.getEmail());
         user.setName(registerRequest.getName());
         user.setLastName(registerRequest.getLastName());
         user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
         userRepository.save(user);
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(registerRequest.getEmail(), registerRequest.getPassword())
-        );
-        return new ResponseEntity<>(jwtUtil.generateToken(
-                registerRequest.getEmail(),
-                userRepository.findByEmail(registerRequest.getEmail()).getId(),
-                registerRequest.getName() +" "+registerRequest.getLastName()
-        )
-                ,HttpStatus.OK
-        );
+
+        try {
+            String token = jwtUtil.generateToken(
+                    user.getEmail(),
+                    user.getId(),
+                    user.getName() + " " + user.getLastName()
+            );
+
+            return ResponseEntity.ok(token);
+        } catch (Exception e) {
+            System.err.println("Registration failed: " + e.getMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 }
